@@ -14,6 +14,10 @@
 		57337F1824A70CB300C23648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57337F1624A70CB300C23648 /* Main.storyboard */; };
 		57337F1A24A70CB400C23648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57337F1924A70CB400C23648 /* Assets.xcassets */; };
 		57337F1D24A70CB400C23648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57337F1B24A70CB400C23648 /* LaunchScreen.storyboard */; };
+		57B7F60E24A8765B00C5C5D2 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B7F60A24A8765B00C5C5D2 /* record.png */; };
+		57B7F61524A878CE00C5C5D2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B7F61224A878CD00C5C5D2 /* play.png */; };
+		57B7F61624A878CE00C5C5D2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B7F61324A878CD00C5C5D2 /* pause.png */; };
+		57B7F61724A878CE00C5C5D2 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B7F61424A878CD00C5C5D2 /* stop.png */; };
 		B9637F2FC5A7E673F6C0971A /* Pods_AudioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01F5D79BF56D7665A25C5D /* Pods_AudioApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		57337F1924A70CB400C23648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57337F1C24A70CB400C23648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57337F1E24A70CB400C23648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57B7F60A24A8765B00C5C5D2 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		57B7F61224A878CD00C5C5D2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		57B7F61324A878CD00C5C5D2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		57B7F61424A878CD00C5C5D2 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		8A01F5D79BF56D7665A25C5D /* Pods_AudioApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +81,7 @@
 		57337F0F24A70CB300C23648 /* AudioApp */ = {
 			isa = PBXGroup;
 			children = (
+				57B7F60924A8764300C5C5D2 /* image */,
 				57179C2D24A726C2003F0314 /* Sicilian_Breeze.mp3 */,
 				57337F1024A70CB300C23648 /* AppDelegate.swift */,
 				57337F1224A70CB300C23648 /* SceneDelegate.swift */,
@@ -85,13 +94,23 @@
 			path = AudioApp;
 			sourceTree = "<group>";
 		};
+		57B7F60924A8764300C5C5D2 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				57B7F60A24A8765B00C5C5D2 /* record.png */,
+				57B7F61324A878CD00C5C5D2 /* pause.png */,
+				57B7F61224A878CD00C5C5D2 /* play.png */,
+				57B7F61424A878CD00C5C5D2 /* stop.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		D82F7D9E6B472B22B18605D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				11B373A282D8EE3333E6CA52 /* Pods-AudioApp.debug.xcconfig */,
 				0A8D2902F96B3C92F1A739CB /* Pods-AudioApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,10 +173,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B7F60E24A8765B00C5C5D2 /* record.png in Resources */,
+				57B7F61724A878CE00C5C5D2 /* stop.png in Resources */,
 				57337F1D24A70CB400C23648 /* LaunchScreen.storyboard in Resources */,
 				57179C2E24A726C2003F0314 /* Sicilian_Breeze.mp3 in Resources */,
+				57B7F61624A878CE00C5C5D2 /* pause.png in Resources */,
 				57337F1A24A70CB400C23648 /* Assets.xcassets in Resources */,
 				57337F1824A70CB300C23648 /* Main.storyboard in Resources */,
+				57B7F61524A878CE00C5C5D2 /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

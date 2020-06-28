@@ -39,13 +39,38 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        check_permission()
         selectAudioFile()
         if !isRecordMode {
             initPlay()
             mBtnRecord.isEnabled = false
+            mLbRecordTime.isHidden = true
             mLbRecordTime.isEnabled = false
         } else {
             initRecord()
+        }
+    }
+    
+    /**
+     録音許可チェック
+     */
+    func check_permission() {
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSession.RecordPermission.granted:
+            break
+        case AVAudioSession.RecordPermission.denied:
+            break
+        case AVAudioSession.RecordPermission.undetermined:
+            AVAudioSession.sharedInstance().requestRecordPermission({(allowed) in
+                if allowed {
+                    
+                } else {
+                    
+                }
+            })
+            break
+        default:
+            break
         }
     }
     
@@ -108,6 +133,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             print("Error-initRecord : \(error)")
         }
         
+        mBtnRecord.isSelected = false;
         mSlVolume.value = 1.0
         audioPlayer.volume = mSlVolume.value
         mLbCurrentTime.text = convertNSTimeInterval2String(0)
@@ -182,15 +208,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     @IBAction func btnRecord(_ sender: UIButton) {
-        if (sender as AnyObject).titleLabel??.text == "Record" {
+        if mBtnRecord.isSelected == false {
             audioRecorder.record()
             mBtnRecord.isSelected = true
-            (sender as AnyObject).setTitle("Stop", for: .selected)
+            let image = UIImage(named: "stop.png")
+            (sender as AnyObject).setImage(image, for: .selected)
             progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: timeRecordSelector, userInfo: nil, repeats: true)
         } else {
             audioRecorder.stop()
             mBtnRecord.isSelected = false
-            (sender as AnyObject).setTitle("Record", for: .normal)
+            let image = UIImage(named: "record.png")
+            (sender as AnyObject).setImage(image, for: .normal)
             progressTimer.invalidate()
             // 録音ファイル再生ボタン有効化
             mBtnPlay.isEnabled = true
@@ -205,11 +233,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             mLbCurrentTime.text = convertNSTimeInterval2String(0)
             isRecordMode = true
             mBtnRecord.isEnabled = true
+            mLbRecordTime.isHidden = false
             mLbRecordTime.isEnabled = true
         } else {
             isRecordMode = false;
             mBtnRecord.isEnabled = false;
-            mLbRecordTime.isEnabled = false;
+            mLbRecordTime.isHidden = true
+            mLbRecordTime.isEnabled = false
             mLbRecordTime.text = convertNSTimeInterval2String(0)
         }
         selectAudioFile()
